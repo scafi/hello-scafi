@@ -6,7 +6,7 @@ import it.unibo.scafi.incarnations.BasicAbstractIncarnation
 object MyIncarnation extends BasicAbstractIncarnation
 
 // 2. Bring into scope the stuff from the chosen incarnation
-import MyIncarnation._
+import examples.MyIncarnation._
 
 // 3. Define an "aggregate program" using the ScaFi DSL by extending AggregateProgram and specifying a "main" expression
 class BasicUsageProgram extends AggregateProgram  {
