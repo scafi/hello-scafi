@@ -11,9 +11,10 @@ import examples.MyIncarnation._
 
 // 3. Define an "aggregate program" using the ScaFi DSL by extending AggregateProgram and specifying a "main" expression
 class GradientProgram extends AggregateProgram {
+  def isSource: Boolean = sense("source")
   /* hop gradient */
   override def main(): Any = rep(Double.PositiveInfinity)(d => {
-    mux(mid() == 2){ 0.0 } { foldhoodPlus(Double.PositiveInfinity)(Math.min)(nbr(d) + 1.0) }
+    mux(isSource){ 0.0 } { foldhoodPlus(Double.PositiveInfinity)(Math.min)(nbr(d) + 1.0) }
   })
 }
 
@@ -28,8 +29,9 @@ object HelloScafi extends App {
   case class DeviceState(self: ID, exports: Map[ID,EXPORT], localSensors: Map[LSNS,Any], nbrSensors: Map[NSNS, Map[ID,Any]])
   val devices = (1 to 5).toSeq
   var state: Map[ID,DeviceState] = (for(d <- devices; nbrs = Seq(d-1, d, d+1).filter(n => n > 0 && n < 6))
-    yield d -> DeviceState(d, Map.empty[ID,EXPORT], Map.empty[LSNS,Any], Map[NSNS,Map[ID,Any]](NBR_RANGE -> (nbrs.toSet[ID].map(nbr => nbr -> Math.abs(d - nbr).toDouble)).toMap))
+    yield d -> DeviceState(d, Map.empty[ID,EXPORT], Map[LSNS,Any]("source" -> false), Map[NSNS,Map[ID,Any]](NBR_RANGE -> (nbrs.toSet[ID].map(nbr => nbr -> Math.abs(d - nbr).toDouble)).toMap))
     ).toMap
+  state = state + (2 -> state(2).copy(localSensors = state(2).localSensors + ("source" -> true)))
   // The following cycle performs the scheduling of rounds and simulates communication by writing on `state`
   val scheduling = devices ++ devices ++ devices ++ devices ++ devices // run 5 rounds each, in a round-robin fashion
   for(d <- scheduling){
