@@ -11,14 +11,10 @@
         "org.scala-lang:scala-library",
         "scala"
       ],
-      "semanticCommitScope": "api-deps"
-    },
-    {
-      "description": "Trigger a patch update on some dependencies",
-      "matchPackageNames": [
-        "it.unibo.scafi:scafi-core_2.13"
+      "matchPackagePrefixes": [
+        "it.unibo.scafi"
       ],
-      "semanticCommitScope": "core-deps"
+      "semanticCommitScope": "api-deps"
     }
   ]
 }
