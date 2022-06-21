@@ -1,5 +1,22 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "github>DanySK/renovate-config"
+  ],
+  "packageRules": [
+    {
+      "description": "Trigger a minor update on some dependencies",
+      "matchPackageNames": [
+        "org.scala-lang:scala-library"
+      ],
+      "semanticCommitScope": "api-deps"
+    },
+    {
+      "description": "Trigger a patch update on some dependencies",
+      "matchPackageNames": [
+        "it.unibo.scafi:scafi-core_2.13"
+      ],
+      "semanticCommitScope": "core-deps"
+    }
   ]
 }
