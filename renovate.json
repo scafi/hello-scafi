@@ -3,6 +3,7 @@
   "extends": [
     "github>DanySK/renovate-config"
   ],
+  "assignees": ["metaphori", "cric96"],
   "packageRules": [
     {
       "description": "Trigger a minor update on some dependencies",
