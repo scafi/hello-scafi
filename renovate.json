@@ -8,7 +8,8 @@
     {
       "description": "Trigger a minor update on some dependencies",
       "matchPackageNames": [
-        "org.scala-lang:scala-library"
+        "org.scala-lang:scala-library",
+        "scala"
       ],
       "semanticCommitScope": "api-deps"
     },
