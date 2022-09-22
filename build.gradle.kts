@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.scala-lang:scala-library:2.13.8")
+    implementation("org.scala-lang:scala-library:2.13.9")
     implementation("it.unibo.scafi:scafi-core_2.13:1.1.6")
 }
 
