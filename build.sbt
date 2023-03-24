@@ -1,4 +1,4 @@
-val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "1.1.6"
+val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "1.1.7"
 
 ThisBuild / scalaVersion := "2.13.10"
 ThisBuild / organization := "com.example"
