@@ -1,6 +1,6 @@
 val scafi_core  = "it.unibo.scafi" %% "scafi-core"  % "1.1.7"
 
-ThisBuild / scalaVersion := "2.13.11"
+ThisBuild / scalaVersion := "2.13.12"
 ThisBuild / organization := "com.example"
 
 lazy val hello = (project in file("."))
