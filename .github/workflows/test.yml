@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-      - uses: DanySK/build-check-deploy-gradle-action@2.4.0
+      - uses: DanySK/build-check-deploy-gradle-action@2.4.24
         with:
           check-command: |
             sbt run
